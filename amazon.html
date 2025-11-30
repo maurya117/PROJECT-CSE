@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amazon-style Frontend — Starter Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --nav-bg:#131921; 
+      --accent:#ff9900; 
+      --muted:#f3f3f3;
+      --text:#111;
+      --max-width:1200px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Roboto, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:var(--text); background:#fff}
+
+    .topbar{background:var(--nav-bg); color:white}
+    .container{max-width:var(--max-width); margin:0 auto; padding:0 16px}
+    .topbar-inner{display:flex; align-items:center; gap:16px; height:64px}
+    .logo{display:flex; align-items:center; gap:8px; font-weight:700; color:white; text-decoration:none}
+    .logo .mark{background:var(--accent); color:#111; padding:6px 8px; border-radius:4px; font-weight:700}
+
+    .search{flex:1; display:flex; align-items:center}
+    .search input{flex:1; height:40px; border-radius:4px 0 0 4px; border:0; padding:8px 12px}
+    .search button{height:40px; background:#febd69; border:0; padding:0 14px; border-radius:0 4px 4px 0; cursor:pointer}
+
+    .actions{display:flex; gap:12px; align-items:center}
+    .actions a{color:white; text-decoration:none; font-size:14px}
+
+    nav.main-nav{background:#232f3e; color:white}
+    .nav-inner{display:flex; gap:14px; padding:8px 16px; align-items:center}
+    .nav-inner a{color:white; text-decoration:none; font-size:14px}
+
+    .hero{background:linear-gradient(90deg,#f7f7f7 0,#fff 60%); padding:28px 0}
+    .hero-grid{display:grid; grid-template-columns:1fr 420px; gap:20px; align-items:center}
+    .hero .headline{font-size:28px; margin:0 0 12px}
+    .hero .sub{color:#555}
+    .hero img{width:100%; border-radius:8px}
+
+    .catalog{padding:28px 0}
+    .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+    .card{border:1px solid #e6e6e6; padding:12px; border-radius:8px; background:white}
+    .card img{width:100%; height:180px; object-fit:contain; background:var(--muted); border-radius:4px}
+    .card h3{font-size:15px; margin:10px 0}
+    .price{font-size:16px; font-weight:700; color:var(--text)}
+    .meta{font-size:13px; color:#666}
+    .rating{color:#b46900}
+
+    footer{background:#131921; color:#ddd; padding:28px 0}
+    footer .cols{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    footer a{color:#ddd; text-decoration:none; font-size:14px}
+
+    @media (max-width:1000px){
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .hero-grid{grid-template-columns:1fr 320px}
+    }
+    @media (max-width:760px){
+      .topbar-inner{height:auto; padding:12px 0; flex-wrap:wrap}
+      .search{order:3; width:100%}
+      nav.main-nav{display:none}
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      footer .cols{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:420px){
+      .grid{grid-template-columns:1fr}
+    }
+    .muted{color:#666}
+    .btn{display:inline-block; background:var(--accent); color:#111; padding:8px 12px; border-radius:6px; text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="topbar" role="banner">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="logo" href="#" aria-label="Home"><span class="mark">a</span> MyStore</a>
+
+        <div class="search" role="search" aria-label="Search">
+          <input type="search" placeholder="Search for products, brands and more" aria-label="Search input">
+          <button aria-label="Search">Search</button>
+        </div>
+
+        <div class="actions" aria-hidden="false">
+          <a href="#">Hello, Sign in</a>
+          <a href="#">Orders</a>
+          <a href="#">Cart (0)</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="#">All</a>
+        <a href="#">Today's Deals</a>
+        <a href="#">Customer Service</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Sell</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1 class="headline">Shop millions of products — online at great prices</h1>
+          <p class="sub">Free delivery on eligible orders • Easy returns • Fast shipping</p>
+          <p style="margin-top:16px"><a class="btn" href="#">Shop Best Sellers</a></p>
+        </div>
+        <div>
+          <img src="./image 5.jpg" alt="Promotional banner">
+        </div>
+      </div>
+    </section>
+
+    <section class="catalog container">
+      <h2 style="margin:0 0 16px">Featured products</h2>
+      <div class="grid" role="list">
+        <article class="card" role="listitem">
+          <img src="./image 1.webp" alt="Product 1">
+          <h3>Wireless Headphones — Comfortable over-ear</h3>
+          <div class="meta">BrandName • <span class="rating">★★★★☆</span></div>
+          <div class="price">$59.99</div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="./image 2.webp" alt="Product 2">
+          <h3>Smart Speaker with Voice Assistant</h3>
+          <div class="meta">BrandName • <span class="rating">★★★☆☆</span></div>
+          <div class="price">$29.99</div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="./image 3.jpg" alt="Product 3">
+          <h3>Portable Charger 20000mAh</h3>
+          <div class="meta">BrandName • <span class="rating">★★★★★</span></div>
+          <div class="price">$24.99</div>
+        </article>
+
+        <article class="card" role="listitem">
+          <img src="./image 4.jpg" alt="Product 4">
+          <h3>Stainless Steel Water Bottle</h3>
+          <div class="meta">BrandName • <span class="rating">★★★★☆</span></div>
+          <div class="price">$14.99</div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="cols">
+        <div>
+          <h4>Get to Know Us</h4>
+          <a href="#">About</a><br>
+          <a href="#">Careers</a>
+        </div>
+        <div>
+          <h4>Make Money with Us</h4>
+          <a href="#">Sell on MyStore</a><br>
+          <a href="#">Affiliate</a>
+        </div>
+        <div>
+          <h4>Customer Service</h4>
+          <a href="#">Help</a><br>
+          <a href="#">Returns</a>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <a href="#">Facebook</a><br>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <p style="margin-top:18px; color:#999">© 2025 — This is a learning clone. Do not use for commercial purposes.</p>
+    </div>
+  </footer>
+</body>
+</html>
